@@ -23,21 +23,30 @@ public class s_pendulo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tiempo_transcurrido >= 0.01)
-        {
-            transform.Rotate(new Vector3(angulo, 0, 0));
-                    angulo_acumulado += angulo;
+        //if (tiempo_transcurrido >= 0.01)
+        //{
+            transform.Rotate(new Vector3(0, 0, angulo));
+            angulo_acumulado += angulo;
 
-                    if(angulo_acumulado == -40)
-                    {
-                        angulo = 1;
-                    }else if(angulo_acumulado == 40)
-                    {
-                        angulo = -1;
-                    }
-            tiempo_transcurrido = 0;
-        }
-        tiempo_transcurrido = 0;
+            angulo = cambiaSentido ? .1f : -.1f;
+
+            if (angulo_acumulado >= 40)
+            {
+                cambiaSentido = false;
+                angulo = -.1f;
+            }
+            else
+            {
+                if(angulo_acumulado <= -40)
+                {
+                    cambiaSentido = true;
+                    angulo = .1f;
+                }
+            }
+
+            //tiempo_transcurrido = 0;
+        //}
+        //tiempo_transcurrido = 0;
         
         
     }
