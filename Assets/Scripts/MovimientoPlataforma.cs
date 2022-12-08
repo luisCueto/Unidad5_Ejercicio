@@ -63,4 +63,6 @@ public class MovimientoPlataforma : MonoBehaviour
             punto_destino_p1 = ++punto_destino_p1 % puntos.Count;
         }
     }
+
+    
 }
